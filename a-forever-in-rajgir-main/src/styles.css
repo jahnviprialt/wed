@@ -1,0 +1,248 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system definition.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * The :root and .dark blocks define the actual color values using oklch.
+ * All colors MUST use oklch format.
+ *
+ * To add a new semantic color:
+ * 1. Add the variable to :root (light value) and .dark (dark value)
+ * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.25rem;
+  --background: oklch(0.955 0.02 70);
+  --foreground: oklch(0.36 0.04 30);
+  --card: oklch(0.975 0.015 85);
+  --card-foreground: oklch(0.28 0.06 25);
+  --popover: oklch(0.975 0.015 85);
+  --popover-foreground: oklch(0.28 0.06 25);
+  --primary: oklch(0.58 0.07 12);
+  --primary-foreground: oklch(0.96 0.02 85);
+  --secondary: oklch(0.92 0.03 80);
+  --secondary-foreground: oklch(0.34 0.11 22);
+  --muted: oklch(0.92 0.025 80);
+  --muted-foreground: oklch(0.48 0.05 40);
+  --accent: oklch(0.74 0.11 80);
+  --accent-foreground: oklch(0.25 0.06 25);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.78 0.08 80);
+  --input: oklch(0.85 0.05 80);
+  --ring: oklch(0.74 0.11 80);
+  --gold: oklch(0.74 0.08 78);
+  --gold-deep: oklch(0.58 0.08 70);
+  --rose: oklch(0.6 0.07 12);
+  --blush: oklch(0.86 0.04 20);
+  --champagne: oklch(0.91 0.035 75);
+  --earth: oklch(0.42 0.04 45);
+  --rose-deep: oklch(0.47 0.06 14);
+  --terracotta: oklch(0.55 0.08 25);
+  --leaf: oklch(0.5 0.06 135);
+  --ivory: oklch(0.965 0.016 80);
+  --gradient-gold: linear-gradient(120deg, oklch(0.66 0.08 70), oklch(0.9 0.07 85) 45%, oklch(0.7 0.08 72));
+  --gradient-rose: radial-gradient(ellipse at 50% 35%, oklch(0.66 0.065 14), oklch(0.5 0.06 14));
+  --gradient-dusk: linear-gradient(180deg, oklch(0.6 0.07 12) 0%, oklch(0.8 0.045 25) 45%, oklch(0.955 0.02 70) 100%);
+  --shadow-frame: 0 30px 60px -25px oklch(0.35 0.05 20 / 0.35);
+}
+
+@theme inline {
+  --color-gold: var(--gold);
+  --color-gold-deep: var(--gold-deep);
+  --color-rose: var(--rose);
+  --color-rose-deep: var(--rose-deep);
+  --color-terracotta: var(--terracotta);
+  --color-blush: var(--blush);
+  --color-champagne: var(--champagne);
+  --color-earth: var(--earth);
+  --color-leaf: var(--leaf);
+  --color-ivory: var(--ivory);
+  --font-display: "Cormorant Garamond", serif;
+  --font-script: "Pinyon Script", cursive;
+  --font-body: "EB Garamond", serif;
+  --font-deva: "Tiro Devanagari Sanskrit", serif;
+  --font-caps: "Cinzel", serif;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-body); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+}
+
+@utility text-gold-foil {
+  background: var(--gradient-gold);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+@utility bg-rose-silk { background: var(--gradient-rose); }
+@utility paper {
+  background-color: var(--ivory);
+  background-image: radial-gradient(oklch(0.6 0.05 60 / 0.06) 1px, transparent 1px), radial-gradient(oklch(0.6 0.05 60 / 0.05) 1px, transparent 1px);
+  background-size: 7px 7px, 13px 13px; background-position: 0 0, 3px 5px;
+}
+@utility jaali {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='0 0 44 44'%3E%3Cg fill='none' stroke='%23b8975a' stroke-opacity='.16' stroke-width='.7'%3E%3Cpath d='M22 2c6 8 6 12 0 20-6-8-6-12 0-20zM22 22c6 8 6 12 0 20-6-8-6-12 0-20zM2 22c8-6 12-6 20 0-8 6-12 6-20 0zM22 22c8-6 12-6 20 0-8 6-12 6-20 0z'/%3E%3Ccircle cx='22' cy='22' r='2'/%3E%3C/g%3E%3C/svg%3E");
+}
+@utility bg-dusk { background: var(--gradient-dusk); }
+@utility gold-frame {
+  position: relative;
+  outline: 1px solid var(--gold); outline-offset: -10px;
+  box-shadow: inset 0 0 0 1px var(--gold), var(--shadow-frame);
+}
+@utility tracking-royal { letter-spacing: 0.38em; }
+
+@keyframes kenburns { from { transform: scale(1.04) translate(0,0);} to { transform: scale(1.14) translate(-1.5%, -1.5%);} }
+@keyframes floatUp { 0% { transform: translateY(0) translateX(0); opacity: 0;} 15% {opacity: .9;} 100% { transform: translateY(-110vh) translateX(30px); opacity: 0;} }
+@keyframes flicker { 0%,100% { opacity: .85; transform: scaleY(1);} 50% { opacity: 1; transform: scaleY(1.08);} }
+@keyframes breathe { 0%,100% { opacity: .55;} 50% { opacity: 1;} }
+@keyframes drift { 0% { transform: translate(0,0) rotate(0deg); opacity: 0;} 10% {opacity:.8;} 100% { transform: translate(40vw, 110vh) rotate(160deg); opacity: 0;} }
+@keyframes pushIn { from { transform: scale(0.97);} to { transform: scale(1.03);} }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@utility animate-pushin { animation: pushIn 18s ease-out forwards; }
+.petal { position: absolute; top: -20px; width: 9px; height: 13px; border-radius: 80% 0 80% 0; background: oklch(0.82 0.06 15 / .75); animation: drift linear infinite; pointer-events: none; }
+.draw-line { stroke-dasharray: 1200; stroke-dashoffset: 1200; }
+.in .draw-line { animation: draw 6s ease-in-out forwards; }
+@keyframes shimmer { from { background-position: -200% 0;} to { background-position: 200% 0;} }
+
+@utility animate-kenburns { animation: kenburns 24s ease-in-out infinite alternate; }
+@utility animate-breathe { animation: breathe 3.2s ease-in-out infinite; }
+@utility animate-flicker { animation: flicker 2.4s ease-in-out infinite; }
+
+.wedding-chapter {
+  isolation: isolate;
+  background: #76565a;
+}
+.wedding-chapter__backdrop {
+  z-index: -2;
+  background:
+    radial-gradient(ellipse at 52% 43%, rgb(191 143 132 / 78%), transparent 48%),
+    radial-gradient(ellipse at 8% 14%, rgb(232 215 190 / 92%), transparent 43%),
+    radial-gradient(ellipse at 92% 78%, rgb(207 164 119 / 48%), transparent 38%),
+    radial-gradient(circle at 20% 75%, rgb(238 204 176 / 28%) 0 2px, transparent 4px),
+    radial-gradient(circle at 82% 24%, rgb(245 220 171 / 33%) 0 2px, transparent 5px),
+    linear-gradient(138deg, #c8b29d 0%, #a47878 46%, #725257 100%);
+  background-size: 140% 140%;
+  filter: blur(12px);
+  transform: scale(1.04);
+}
+.wedding-chapter__light {
+  z-index: -1;
+  opacity: 0;
+  background:
+    radial-gradient(ellipse at 20% 22%, rgb(255 228 179 / 20%), transparent 36%),
+    radial-gradient(ellipse at 78% 68%, rgb(234 192 147 / 18%), transparent 35%);
+}
+.wedding-chapter.chapter-in .wedding-chapter__backdrop {
+  animation: chapterFocus 2.8s cubic-bezier(.2,.7,.2,1) forwards;
+}
+.wedding-chapter.chapter-in .wedding-chapter__light {
+  animation: chapterLight 16s ease-in-out 1.2s infinite alternate;
+}
+.wedding-chapter__title-first,
+.wedding-chapter__title-second,
+.wedding-chapter__ornament,
+.wedding-chapter__caption {
+  opacity: 0;
+  transform: translateY(10px);
+}
+.wedding-chapter.chapter-in .wedding-chapter__title-first {
+  animation: chapterTextIn 1.6s cubic-bezier(.2,.7,.2,1) .35s forwards;
+}
+.wedding-chapter.chapter-in .wedding-chapter__title-second {
+  animation: chapterTextIn 1.6s cubic-bezier(.2,.7,.2,1) .95s forwards;
+}
+.wedding-chapter.chapter-in .wedding-chapter__ornament {
+  animation: chapterTextIn 1.4s cubic-bezier(.2,.7,.2,1) 1.35s forwards;
+}
+.wedding-chapter.chapter-in .wedding-chapter__caption {
+  animation: chapterTextIn 1.6s cubic-bezier(.2,.7,.2,1) 1.55s forwards;
+}
+.wedding-chapter__diya {
+  filter: drop-shadow(0 0 18px rgb(255 199 116 / 54%));
+  opacity: .8;
+}
+.wedding-chapter__diya--left { left: 9%; }
+.wedding-chapter__diya--right { right: 9%; }
+@keyframes chapterFocus {
+  to { filter: blur(0); transform: scale(1); }
+}
+@keyframes chapterLight {
+  from { opacity: .12; transform: translate3d(-1.5%, -1%, 0); }
+  to { opacity: .58; transform: translate3d(1.5%, 1%, 0); }
+}
+@keyframes chapterTextIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.reveal { opacity: 0; transform: translateY(28px); filter: blur(6px); transition: opacity 1.8s cubic-bezier(.2,.7,.2,1), transform 1.8s cubic-bezier(.2,.7,.2,1), filter 1.8s ease; }
+.reveal.in { opacity: 1; transform: none; filter: none; }
+.particle { position: absolute; bottom: -10px; border-radius: 9999px; background: radial-gradient(circle, oklch(0.9 0.1 88), oklch(0.76 0.11 80 / 0)); animation: floatUp linear infinite; pointer-events: none; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { transition: none; opacity: 1; transform: none; filter: none; }
+  .particle, .petal, .animate-kenburns { animation: none; }
+  .wedding-chapter__backdrop { filter: none; transform: none; }
+  .wedding-chapter__light { opacity: .3; }
+  .wedding-chapter__title-first, .wedding-chapter__title-second, .wedding-chapter__ornament, .wedding-chapter__caption { opacity: 1; transform: none; }
+}
