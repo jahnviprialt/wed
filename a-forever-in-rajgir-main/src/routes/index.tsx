@@ -20,11 +20,11 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Shipra & Saurav — Wedding Invitation · 20 November 2026" },
+      { title: "Shipra weds Saurav — Wedding Invitation · 20 November 2026" },
       {
         name: "description",
         content:
-          "With joy, Shipra & Saurav invite you to celebrate their wedding on 20 November 2026, 7:00 PM onwards, in Rajgir.",
+          "With joy, Shipra weds Saurav invite you to celebrate their wedding on 20 November 2026, 7:00 PM onwards, in Rajgir.",
       },
       { property: "og:title", content: "Shipra weds Saurav · 20 November 2026" },
       {
@@ -204,7 +204,7 @@ function Opening({ onEnter, entered }: { onEnter: () => void; entered: boolean }
           <h1 className="mb-1 font-display text-4xl tracking-[0.18em] text-rose sm:text-6xl">
             SHIPRA
           </h1>
-          <p className="mb-1 font-script text-4xl text-terracotta sm:text-5xl">&amp;</p>
+          <p className="mb-1 font-script text-4xl text-terracotta sm:text-5xl">WEDS</p>
           <h2 className="mb-3 font-display text-4xl tracking-[0.18em] text-rose sm:text-6xl">
             SAURAV
           </h2>
@@ -403,24 +403,12 @@ function EventsSection() {
 
       <div className="events-flow mx-auto mt-10 max-w-6xl">
         <Reveal>
-          <EventScene
-            tone="mehendi"
-            title="MEHENDI"
-            date="19 NOVEMBER 2026"
-            time="10:00 AM"
-            detail="RAJGIR"
-          >
+          <EventScene tone="mehendi" title="MEHENDI" date="19 NOVEMBER 2026" time="10:00 AM">
             <MehendiArtwork />
           </EventScene>
         </Reveal>
         <Reveal delay={200}>
-          <EventScene
-            tone="haldi"
-            title="HALDI"
-            date="20 NOVEMBER 2026"
-            time="11:00 AM"
-            detail="RAJGIR"
-          >
+          <EventScene tone="haldi" title="HALDI" date="20 NOVEMBER 2026" time="11:00 AM">
             <HaldiArtwork />
           </EventScene>
         </Reveal>
@@ -428,10 +416,9 @@ function EventsSection() {
         <Reveal>
           <EventScene
             tone="wedding"
-            title="SANGEET • WEDDING CEREMONY • JAIMALA"
+            title="SANGEET • JAIMALA • WEDDING CEREMONY"
             date="20 NOVEMBER 2026"
             time="7:00 PM ONWARDS"
-            detail="RAJGIR"
           >
             <MandapArtwork />
           </EventScene>
@@ -491,7 +478,7 @@ function Finale() {
         </Reveal>
         <Reveal delay={400}>
           <p className="finale-names mt-10 whitespace-nowrap font-display text-[1.65rem] tracking-[0.08em] sm:text-5xl sm:tracking-[0.12em]">
-            SHIPRA <span className="font-script tracking-normal">&amp;</span> SAURAV
+            SHIPRA <span className="font-script tracking-normal">WEDS</span> SAURAV
           </p>
           <p className="finale-date mt-6 font-caps text-xs tracking-royal">20 NOVEMBER 2026</p>
           <p className="finale-time mt-2 font-caps text-[10px] tracking-[0.28em]">

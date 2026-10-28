@@ -3,7 +3,7 @@ import groomImg from "@/assets/groom.jpg";
 import couple1Img from "@/assets/couple1.jpg";
 import couple2Img from "@/assets/couple2.jpg";
 import couple3Img from "@/assets/couple3.jpg";
-import shipshadiMp3 from "@/assets/shipshadi.mp3";
+import wedshipMp3 from "@/assets/wedship.mp3";
 
 // Original photographs of the couple, shown untouched
 // (only crop, slow zoom, fade and framing are applied).
@@ -19,7 +19,7 @@ export const PHOTOS: {
 };
 
 // Supplied wedding soundtrack.
-export const MUSIC_URL: string = shipshadiMp3;
+export const MUSIC_URL: string = wedshipMp3;
 
 // Venue location supplied by the couple.
 export const DIRECTIONS_URL: string | null =
