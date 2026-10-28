@@ -63,39 +63,49 @@
 
 :root {
   --radius: 0.25rem;
-  --background: oklch(0.955 0.02 70);
-  --foreground: oklch(0.36 0.04 30);
-  --card: oklch(0.975 0.015 85);
-  --card-foreground: oklch(0.28 0.06 25);
-  --popover: oklch(0.975 0.015 85);
-  --popover-foreground: oklch(0.28 0.06 25);
-  --primary: oklch(0.58 0.07 12);
-  --primary-foreground: oklch(0.96 0.02 85);
-  --secondary: oklch(0.92 0.03 80);
-  --secondary-foreground: oklch(0.34 0.11 22);
-  --muted: oklch(0.92 0.025 80);
-  --muted-foreground: oklch(0.48 0.05 40);
-  --accent: oklch(0.74 0.11 80);
-  --accent-foreground: oklch(0.25 0.06 25);
+  --background: oklch(0.98 0.025 84);
+  --foreground: oklch(0.3 0.09 24);
+  --card: oklch(0.99 0.02 84);
+  --card-foreground: oklch(0.28 0.1 22);
+  --popover: oklch(0.99 0.02 84);
+  --popover-foreground: oklch(0.28 0.1 22);
+  --primary: oklch(0.53 0.18 4);
+  --primary-foreground: oklch(0.98 0.02 84);
+  --secondary: oklch(0.91 0.09 80);
+  --secondary-foreground: oklch(0.32 0.12 25);
+  --muted: oklch(0.94 0.035 80);
+  --muted-foreground: oklch(0.44 0.07 34);
+  --accent: oklch(0.77 0.14 76);
+  --accent-foreground: oklch(0.28 0.1 22);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(0.78 0.08 80);
-  --input: oklch(0.85 0.05 80);
-  --ring: oklch(0.74 0.11 80);
-  --gold: oklch(0.74 0.08 78);
-  --gold-deep: oklch(0.58 0.08 70);
-  --rose: oklch(0.6 0.07 12);
-  --blush: oklch(0.86 0.04 20);
-  --champagne: oklch(0.91 0.035 75);
-  --earth: oklch(0.42 0.04 45);
-  --rose-deep: oklch(0.47 0.06 14);
-  --terracotta: oklch(0.55 0.08 25);
-  --leaf: oklch(0.5 0.06 135);
-  --ivory: oklch(0.965 0.016 80);
-  --gradient-gold: linear-gradient(120deg, oklch(0.66 0.08 70), oklch(0.9 0.07 85) 45%, oklch(0.7 0.08 72));
-  --gradient-rose: radial-gradient(ellipse at 50% 35%, oklch(0.66 0.065 14), oklch(0.5 0.06 14));
-  --gradient-dusk: linear-gradient(180deg, oklch(0.6 0.07 12) 0%, oklch(0.8 0.045 25) 45%, oklch(0.955 0.02 70) 100%);
-  --shadow-frame: 0 30px 60px -25px oklch(0.35 0.05 20 / 0.35);
+  --border: oklch(0.78 0.13 70);
+  --input: oklch(0.84 0.08 70);
+  --ring: oklch(0.68 0.16 10);
+  --gold: oklch(0.77 0.14 76);
+  --gold-deep: oklch(0.54 0.14 65);
+  --rose: oklch(0.53 0.19 4);
+  --blush: oklch(0.87 0.09 12);
+  --champagne: oklch(0.91 0.09 78);
+  --earth: oklch(0.3 0.08 34);
+  --rose-deep: oklch(0.37 0.16 2);
+  --terracotta: oklch(0.61 0.18 35);
+  --leaf: oklch(0.44 0.12 145);
+  --ivory: oklch(0.98 0.025 84);
+  --gradient-gold: linear-gradient(
+    120deg,
+    oklch(0.64 0.15 62),
+    oklch(0.91 0.13 83) 45%,
+    oklch(0.68 0.16 70)
+  );
+  --gradient-rose: radial-gradient(ellipse at 50% 35%, oklch(0.66 0.2 8), oklch(0.42 0.16 354));
+  --gradient-dusk: linear-gradient(
+    140deg,
+    oklch(0.31 0.13 344) 0%,
+    oklch(0.46 0.18 15) 52%,
+    oklch(0.63 0.18 36) 100%
+  );
+  --shadow-frame: 0 30px 60px -25px oklch(0.3 0.12 355 / 0.4);
 }
 
 @theme inline {
@@ -128,47 +138,160 @@
 }
 
 @layer base {
-  html { scroll-behavior: smooth; }
-  body { font-family: var(--font-body); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
 }
 
 @utility text-gold-foil {
   background: var(--gradient-gold);
-  -webkit-background-clip: text; background-clip: text; color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
-@utility bg-rose-silk { background: var(--gradient-rose); }
+@utility bg-rose-silk {
+  background: var(--gradient-rose);
+}
 @utility paper {
   background-color: var(--ivory);
-  background-image: radial-gradient(oklch(0.6 0.05 60 / 0.06) 1px, transparent 1px), radial-gradient(oklch(0.6 0.05 60 / 0.05) 1px, transparent 1px);
-  background-size: 7px 7px, 13px 13px; background-position: 0 0, 3px 5px;
+  background-image:
+    radial-gradient(oklch(0.6 0.05 60 / 0.06) 1px, transparent 1px),
+    radial-gradient(oklch(0.6 0.05 60 / 0.05) 1px, transparent 1px);
+  background-size:
+    7px 7px,
+    13px 13px;
+  background-position:
+    0 0,
+    3px 5px;
 }
 @utility jaali {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='0 0 44 44'%3E%3Cg fill='none' stroke='%23b8975a' stroke-opacity='.16' stroke-width='.7'%3E%3Cpath d='M22 2c6 8 6 12 0 20-6-8-6-12 0-20zM22 22c6 8 6 12 0 20-6-8-6-12 0-20zM2 22c8-6 12-6 20 0-8 6-12 6-20 0zM22 22c8-6 12-6 20 0-8 6-12 6-20 0z'/%3E%3Ccircle cx='22' cy='22' r='2'/%3E%3C/g%3E%3C/svg%3E");
 }
-@utility bg-dusk { background: var(--gradient-dusk); }
+@utility bg-dusk {
+  background: var(--gradient-dusk);
+}
 @utility gold-frame {
   position: relative;
-  outline: 1px solid var(--gold); outline-offset: -10px;
-  box-shadow: inset 0 0 0 1px var(--gold), var(--shadow-frame);
+  outline: 1px solid var(--gold);
+  outline-offset: -10px;
+  box-shadow:
+    inset 0 0 0 1px var(--gold),
+    var(--shadow-frame);
 }
-@utility tracking-royal { letter-spacing: 0.38em; }
+@utility tracking-royal {
+  letter-spacing: 0.38em;
+}
 
-@keyframes kenburns { from { transform: scale(1.04) translate(0,0);} to { transform: scale(1.14) translate(-1.5%, -1.5%);} }
-@keyframes floatUp { 0% { transform: translateY(0) translateX(0); opacity: 0;} 15% {opacity: .9;} 100% { transform: translateY(-110vh) translateX(30px); opacity: 0;} }
-@keyframes flicker { 0%,100% { opacity: .85; transform: scaleY(1);} 50% { opacity: 1; transform: scaleY(1.08);} }
-@keyframes breathe { 0%,100% { opacity: .55;} 50% { opacity: 1;} }
-@keyframes drift { 0% { transform: translate(0,0) rotate(0deg); opacity: 0;} 10% {opacity:.8;} 100% { transform: translate(40vw, 110vh) rotate(160deg); opacity: 0;} }
-@keyframes pushIn { from { transform: scale(0.97);} to { transform: scale(1.03);} }
-@keyframes draw { to { stroke-dashoffset: 0; } }
-@utility animate-pushin { animation: pushIn 18s ease-out forwards; }
-.petal { position: absolute; top: -20px; width: 9px; height: 13px; border-radius: 80% 0 80% 0; background: oklch(0.82 0.06 15 / .75); animation: drift linear infinite; pointer-events: none; }
-.draw-line { stroke-dasharray: 1200; stroke-dashoffset: 1200; }
-.in .draw-line { animation: draw 6s ease-in-out forwards; }
-@keyframes shimmer { from { background-position: -200% 0;} to { background-position: 200% 0;} }
+@keyframes kenburns {
+  from {
+    transform: scale(1.04) translate(0, 0);
+  }
+  to {
+    transform: scale(1.14) translate(-1.5%, -1.5%);
+  }
+}
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(-110vh) translateX(30px);
+    opacity: 0;
+  }
+}
+@keyframes flicker {
+  0%,
+  100% {
+    opacity: 0.85;
+    transform: scaleY(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(1.08);
+  }
+}
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes drift {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(40vw, 110vh) rotate(160deg);
+    opacity: 0;
+  }
+}
+@keyframes pushIn {
+  from {
+    transform: scale(0.97);
+  }
+  to {
+    transform: scale(1.03);
+  }
+}
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@utility animate-pushin {
+  animation: pushIn 18s ease-out forwards;
+}
+.petal {
+  position: absolute;
+  top: -20px;
+  width: 9px;
+  height: 13px;
+  border-radius: 80% 0 80% 0;
+  background: oklch(0.82 0.06 15 / 0.75);
+  animation: drift linear infinite;
+  pointer-events: none;
+}
+.draw-line {
+  stroke-dasharray: 1200;
+  stroke-dashoffset: 1200;
+}
+.in .draw-line {
+  animation: draw 6s ease-in-out forwards;
+}
+@keyframes shimmer {
+  from {
+    background-position: -200% 0;
+  }
+  to {
+    background-position: 200% 0;
+  }
+}
 
-@utility animate-kenburns { animation: kenburns 24s ease-in-out infinite alternate; }
-@utility animate-breathe { animation: breathe 3.2s ease-in-out infinite; }
-@utility animate-flicker { animation: flicker 2.4s ease-in-out infinite; }
+@utility animate-kenburns {
+  animation: kenburns 24s ease-in-out infinite alternate;
+}
+@utility animate-breathe {
+  animation: breathe 3.2s ease-in-out infinite;
+}
+@utility animate-flicker {
+  animation: flicker 2.4s ease-in-out infinite;
+}
 
 .wedding-chapter {
   isolation: isolate;
@@ -195,7 +318,7 @@
     radial-gradient(ellipse at 78% 68%, rgb(234 192 147 / 18%), transparent 35%);
 }
 .wedding-chapter.chapter-in .wedding-chapter__backdrop {
-  animation: chapterFocus 2.8s cubic-bezier(.2,.7,.2,1) forwards;
+  animation: chapterFocus 2.8s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
 }
 .wedding-chapter.chapter-in .wedding-chapter__light {
   animation: chapterLight 16s ease-in-out 1.2s infinite alternate;
@@ -208,41 +331,757 @@
   transform: translateY(10px);
 }
 .wedding-chapter.chapter-in .wedding-chapter__title-first {
-  animation: chapterTextIn 1.6s cubic-bezier(.2,.7,.2,1) .35s forwards;
+  animation: chapterTextIn 1.6s cubic-bezier(0.2, 0.7, 0.2, 1) 0.35s forwards;
 }
 .wedding-chapter.chapter-in .wedding-chapter__title-second {
-  animation: chapterTextIn 1.6s cubic-bezier(.2,.7,.2,1) .95s forwards;
+  animation: chapterTextIn 1.6s cubic-bezier(0.2, 0.7, 0.2, 1) 0.95s forwards;
 }
 .wedding-chapter.chapter-in .wedding-chapter__ornament {
-  animation: chapterTextIn 1.4s cubic-bezier(.2,.7,.2,1) 1.35s forwards;
+  animation: chapterTextIn 1.4s cubic-bezier(0.2, 0.7, 0.2, 1) 1.35s forwards;
 }
 .wedding-chapter.chapter-in .wedding-chapter__caption {
-  animation: chapterTextIn 1.6s cubic-bezier(.2,.7,.2,1) 1.55s forwards;
+  animation: chapterTextIn 1.6s cubic-bezier(0.2, 0.7, 0.2, 1) 1.55s forwards;
 }
 .wedding-chapter__diya {
   filter: drop-shadow(0 0 18px rgb(255 199 116 / 54%));
-  opacity: .8;
+  opacity: 0.8;
 }
-.wedding-chapter__diya--left { left: 9%; }
-.wedding-chapter__diya--right { right: 9%; }
+.wedding-chapter__diya--left {
+  left: 9%;
+}
+.wedding-chapter__diya--right {
+  right: 9%;
+}
 @keyframes chapterFocus {
-  to { filter: blur(0); transform: scale(1); }
+  to {
+    filter: blur(0);
+    transform: scale(1);
+  }
 }
 @keyframes chapterLight {
-  from { opacity: .12; transform: translate3d(-1.5%, -1%, 0); }
-  to { opacity: .58; transform: translate3d(1.5%, 1%, 0); }
+  from {
+    opacity: 0.12;
+    transform: translate3d(-1.5%, -1%, 0);
+  }
+  to {
+    opacity: 0.58;
+    transform: translate3d(1.5%, 1%, 0);
+  }
 }
 @keyframes chapterTextIn {
-  to { opacity: 1; transform: translateY(0); }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.reveal { opacity: 0; transform: translateY(28px); filter: blur(6px); transition: opacity 1.8s cubic-bezier(.2,.7,.2,1), transform 1.8s cubic-bezier(.2,.7,.2,1), filter 1.8s ease; }
-.reveal.in { opacity: 1; transform: none; filter: none; }
-.particle { position: absolute; bottom: -10px; border-radius: 9999px; background: radial-gradient(circle, oklch(0.9 0.1 88), oklch(0.76 0.11 80 / 0)); animation: floatUp linear infinite; pointer-events: none; }
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 1.2s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 1.2s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+.opening-line {
+  opacity: 0;
+  animation: openingLineReveal 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.opening-art {
+  transform: scale(1.04);
+  transform-origin: center;
+}
+@keyframes openingLineReveal {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.opening-details {
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+.opening-details--visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.particle {
+  position: absolute;
+  bottom: -10px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, oklch(0.9 0.1 88), oklch(0.76 0.11 80 / 0));
+  animation: floatUp linear infinite;
+  pointer-events: none;
+}
 @media (prefers-reduced-motion: reduce) {
-  .reveal { transition: none; opacity: 1; transform: none; filter: none; }
-  .particle, .petal, .animate-kenburns { animation: none; }
-  .wedding-chapter__backdrop { filter: none; transform: none; }
-  .wedding-chapter__light { opacity: .3; }
-  .wedding-chapter__title-first, .wedding-chapter__title-second, .wedding-chapter__ornament, .wedding-chapter__caption { opacity: 1; transform: none; }
+  .reveal {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+  .opening-line {
+    opacity: 1;
+    animation: none;
+  }
+  .opening-details {
+    opacity: 1;
+    transition: none;
+    transform: none;
+    pointer-events: auto;
+  }
+  .draw-line {
+    stroke-dashoffset: 0;
+  }
+  .particle,
+  .petal,
+  .animate-kenburns {
+    animation: none;
+  }
+  .wedding-chapter__backdrop {
+    filter: none;
+    transform: none;
+  }
+  .wedding-chapter__light {
+    opacity: 0.3;
+  }
+  .wedding-chapter__title-first,
+  .wedding-chapter__title-second,
+  .wedding-chapter__ornament,
+  .wedding-chapter__caption {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.invitation-opening {
+  isolation: isolate;
+  background-color: oklch(0.94 0.055 76);
+}
+.opening-shade {
+  z-index: 1;
+  background:
+    linear-gradient(
+      180deg,
+      oklch(0.98 0.07 82 / 0.28),
+      oklch(0.98 0.045 78 / 0.12) 48%,
+      oklch(0.96 0.07 62 / 0.32)
+    ),
+    radial-gradient(ellipse at 50% 50%, oklch(0.98 0.04 84 / 0.14), transparent 68%);
+}
+.opening-card {
+  padding: clamp(1.15rem, 3.5vw, 2rem);
+  border: 1px solid oklch(0.75 0.14 72 / 0.78);
+  border-radius: 3.5rem 3.5rem 1.25rem 1.25rem;
+  background: linear-gradient(155deg, oklch(0.99 0.025 84 / 0.91), oklch(0.97 0.045 76 / 0.87));
+  box-shadow:
+    0 24px 70px oklch(0.36 0.12 25 / 0.2),
+    inset 0 0 0 5px oklch(0.82 0.12 76 / 0.25);
+}
+.opening-actions {
+  width: 100%;
+}
+.opening-action {
+  width: 11rem;
+  min-height: 2.75rem;
+  border-radius: 9999px;
+  box-shadow: 0 8px 22px oklch(0.36 0.12 25 / 0.2);
+}
+.opening-action:hover {
+  transform: translateY(-2px);
+}
+
+.celebrant-section {
+  isolation: isolate;
+}
+.celebrant-section--bride {
+  background:
+    radial-gradient(ellipse at 8% 18%, oklch(0.93 0.1 12 / 0.72), transparent 33%),
+    radial-gradient(ellipse at 88% 84%, oklch(0.9 0.12 78 / 0.55), transparent 36%),
+    linear-gradient(135deg, oklch(0.99 0.025 84), oklch(0.97 0.04 55));
+}
+.celebrant-section--bride::after,
+.celebrant-section--groom::after {
+  position: absolute;
+  z-index: -1;
+  width: min(42vw, 32rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  opacity: 0.5;
+  content: "";
+  pointer-events: none;
+}
+.celebrant-section--bride::after {
+  right: -14rem;
+  bottom: -16rem;
+  background: radial-gradient(circle, oklch(0.8 0.14 15 / 0.24), transparent 68%);
+}
+.celebrant-section--groom {
+  background:
+    radial-gradient(ellipse at 90% 12%, oklch(0.85 0.12 144 / 0.35), transparent 40%),
+    radial-gradient(ellipse at 0% 90%, oklch(0.9 0.12 58 / 0.42), transparent 38%),
+    linear-gradient(135deg, oklch(0.99 0.025 84), oklch(0.97 0.045 75));
+}
+.celebrant-section--groom::after {
+  left: -15rem;
+  top: -15rem;
+  background: radial-gradient(circle, oklch(0.84 0.12 145 / 0.26), transparent 68%);
+}
+.portrait-frame {
+  width: 100%;
+  padding: 0.45rem;
+  background: oklch(0.99 0.025 84 / 0.72);
+  box-shadow: 0 16px 38px oklch(0.42 0.08 32 / 0.12);
+}
+.portrait-frame--bride {
+  border-radius: 52% 48% 0.75rem 0.75rem;
+  transform: rotate(-1deg);
+}
+.portrait-frame--groom {
+  border-radius: 48% 52% 0.75rem 0.75rem;
+  transform: rotate(1deg);
+}
+
+.family-story {
+  background:
+    radial-gradient(ellipse at 16% 12%, oklch(0.9 0.12 76 / 0.42), transparent 36%),
+    radial-gradient(ellipse at 94% 82%, oklch(0.88 0.1 12 / 0.3), transparent 32%),
+    linear-gradient(160deg, oklch(0.99 0.025 84), oklch(0.97 0.045 55));
+}
+.story-layout {
+  grid-template-columns: minmax(15rem, 0.8fr) minmax(0, 1.35fr);
+}
+.story-copy {
+  position: relative;
+  z-index: 1;
+}
+.story-gallery {
+  gap: clamp(0.25rem, 1.5vw, 1.25rem);
+  padding: 1.5rem 0.25rem;
+}
+.story-photo {
+  padding: 0.35rem;
+  background: oklch(0.99 0.025 84 / 0.8);
+  box-shadow: 0 18px 34px oklch(0.42 0.08 32 / 0.14);
+}
+.story-photo--1 {
+  border-radius: 48% 48% 0.6rem 0.6rem;
+  transform: rotate(-4deg) translateY(-0.5rem);
+}
+.story-photo--2 {
+  border-radius: 0.5rem 0.5rem 46% 46%;
+  transform: rotate(2deg) translateY(1.5rem);
+}
+.story-photo--3 {
+  border-radius: 48% 48% 0.5rem 0.5rem;
+  transform: rotate(-2deg) translateY(-0.85rem);
+}
+
+.celebration-events {
+  background:
+    radial-gradient(ellipse at 0% 8%, oklch(0.9 0.1 145 / 0.18), transparent 34%),
+    radial-gradient(ellipse at 100% 48%, oklch(0.93 0.13 78 / 0.24), transparent 38%),
+    linear-gradient(180deg, oklch(0.99 0.025 84), oklch(0.97 0.045 55));
+}
+.celebration-events > .reveal > p {
+  color: var(--rose-deep);
+}
+.events-heading {
+  padding-bottom: 0.5rem;
+}
+.events-flow > .reveal + .reveal {
+  margin-top: clamp(2.5rem, 6vw, 5rem);
+}
+.event-scene {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(16rem, 0.85fr);
+  align-items: center;
+  gap: clamp(1.5rem, 6vw, 5rem);
+  min-height: 20rem;
+  padding: 1.5rem clamp(0.25rem, 2vw, 1.5rem);
+  isolation: isolate;
+}
+.event-scene::before {
+  position: absolute;
+  z-index: -1;
+  inset: 5% 3%;
+  border-radius: 48% 52% 54% 46% / 54% 42% 58% 46%;
+  content: "";
+}
+.event-scene--mehendi::before {
+  background:
+    radial-gradient(ellipse at 18% 44%, oklch(0.86 0.12 142 / 0.45), transparent 48%),
+    radial-gradient(ellipse at 82% 55%, oklch(0.9 0.1 10 / 0.2), transparent 42%);
+}
+.event-scene--haldi::before {
+  background:
+    radial-gradient(ellipse at 78% 42%, oklch(0.9 0.15 78 / 0.48), transparent 48%),
+    radial-gradient(ellipse at 18% 55%, oklch(0.89 0.11 145 / 0.26), transparent 42%);
+}
+.event-scene--haldi .event-scene__art {
+  order: 2;
+}
+.event-scene--haldi .event-scene__copy {
+  order: 1;
+}
+.event-scene__art {
+  display: flex;
+  min-width: 0;
+  min-height: 14rem;
+  align-items: center;
+  justify-content: center;
+}
+.event-scene__art .ceremony-art {
+  width: min(100%, 28rem);
+  margin: 0 auto;
+}
+.event-scene__copy {
+  max-width: 28rem;
+  color: var(--earth);
+}
+.event-scene__copy h3 {
+  font-size: clamp(2.1rem, 4vw, 3.25rem);
+}
+.event-scene--mehendi .event-scene__copy h3 {
+  color: var(--leaf);
+}
+.event-scene--haldi .event-scene__copy h3,
+.event-scene--haldi .event-scene__copy > p:last-child {
+  color: var(--terracotta);
+}
+.event-scene__copy svg {
+  color: var(--terracotta);
+}
+.event-scene--wedding {
+  grid-template-columns: minmax(0, 1.25fr) minmax(18rem, 0.75fr);
+  min-height: 24rem;
+  margin-top: clamp(3rem, 7vw, 6rem);
+}
+.event-scene--wedding::before {
+  inset: 0 1%;
+  border-radius: 44% 56% 48% 52% / 50% 43% 57% 50%;
+  background:
+    radial-gradient(ellipse at 48% 48%, oklch(0.88 0.11 8 / 0.34), transparent 50%),
+    radial-gradient(ellipse at 18% 72%, oklch(0.89 0.11 142 / 0.3), transparent 35%),
+    radial-gradient(ellipse at 86% 20%, oklch(0.92 0.13 76 / 0.5), transparent 35%);
+}
+.event-scene__art--wedding {
+  min-height: 19rem;
+}
+.event-scene__art--wedding .ceremony-art {
+  width: min(100%, 37rem);
+}
+.event-scene__copy--wedding {
+  max-width: 33rem;
+}
+.event-scene__copy--wedding h3 {
+  color: var(--rose);
+  font-size: clamp(1.7rem, 3vw, 2.6rem);
+}
+.event-scene__copy--wedding h3 span {
+  color: var(--terracotta);
+}
+.event-scene__copy--wedding p {
+  color: var(--earth);
+}
+.event-scene__copy--wedding p:last-child {
+  color: var(--leaf);
+}
+
+.ceremony-particles {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.ceremony-particle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0;
+  animation: ceremonyDrift linear infinite;
+}
+.ceremony-particles--mehendi .ceremony-particle {
+  background: oklch(0.43 0.12 145 / 0.52);
+  box-shadow: 0 0 0 2px oklch(0.43 0.12 145 / 0.08);
+}
+.ceremony-particles--haldi .ceremony-particle {
+  border-radius: 80% 0 80% 0;
+  background: oklch(0.76 0.16 72 / 0.68);
+}
+.ceremony-particles--wedding .ceremony-particle {
+  background: oklch(0.84 0.1 12 / 0.75);
+}
+.ceremony-art {
+  display: block;
+  width: min(100%, 20rem);
+  height: auto;
+  margin: 0 auto 1.25rem;
+  overflow: visible;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.ceremony-art--mehendi {
+  color: oklch(0.39 0.12 145);
+  stroke-width: 1.25;
+}
+.mehendi-palm {
+  fill: oklch(0.93 0.08 18 / 0.45);
+  stroke-width: 1.3;
+}
+.mehendi-palm circle {
+  fill: oklch(0.57 0.16 8 / 0.7);
+  stroke: none;
+}
+.art-sway {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: leafSway 7s ease-in-out infinite alternate;
+}
+.art-sway--right {
+  animation-delay: -3.5s;
+}
+.art-flower {
+  fill: oklch(0.71 0.18 8);
+  animation: flowerBreathe 5s ease-in-out infinite alternate;
+}
+.ceremony-art--haldi {
+  color: oklch(0.48 0.13 145);
+  stroke-width: 1.5;
+}
+.haldi-canopy {
+  stroke: oklch(0.69 0.17 70);
+  stroke-width: 3;
+}
+.marigold {
+  color: oklch(0.72 0.18 56);
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: flowerBreathe 4.5s ease-in-out infinite alternate;
+}
+.marigold--two {
+  animation-delay: -2s;
+}
+.haldi-bowl {
+  fill: oklch(0.78 0.15 62 / 0.72);
+  stroke: oklch(0.62 0.14 36);
+  stroke-width: 2;
+}
+.haldi-mixture {
+  fill: oklch(0.82 0.18 82 / 0.8);
+  stroke: oklch(0.7 0.17 69);
+}
+.art-leaf {
+  fill: oklch(0.57 0.13 143 / 0.52);
+  stroke: oklch(0.4 0.12 145);
+}
+.ceremony-art--mandap {
+  width: min(100%, 31rem);
+  margin-bottom: 0;
+  color: oklch(0.91 0.09 76);
+  stroke-width: 2;
+}
+.mandap-canopy {
+  fill: oklch(0.66 0.18 9 / 0.7);
+  stroke: oklch(0.87 0.12 70);
+  stroke-width: 2.5;
+}
+.mandap-drape {
+  fill: oklch(0.7 0.17 6 / 0.38);
+  stroke: oklch(0.91 0.1 74 / 0.85);
+}
+.mandap-pillar {
+  fill: oklch(0.82 0.12 70 / 0.18);
+  stroke: oklch(0.91 0.1 74 / 0.86);
+}
+.mandap-line,
+.mandap-stage {
+  stroke: oklch(0.92 0.1 78 / 0.8);
+}
+.mandap-leaves {
+  fill: oklch(0.55 0.13 145 / 0.82);
+  stroke: oklch(0.83 0.11 92);
+  stroke-width: 1;
+}
+.art-garland {
+  stroke: oklch(0.79 0.17 65);
+  fill: oklch(0.76 0.18 48);
+  animation: garlandSway 6s ease-in-out infinite alternate;
+  transform-origin: top center;
+}
+.wedding-couple {
+  stroke: oklch(0.98 0.025 84);
+  stroke-width: 3;
+}
+.wedding-couple circle {
+  fill: oklch(0.85 0.1 47);
+  stroke: oklch(0.98 0.025 84);
+}
+.sacred-fire {
+  fill: oklch(0.78 0.18 56 / 0.45);
+  stroke: oklch(0.9 0.15 68);
+  transform-box: fill-box;
+  transform-origin: center bottom;
+  animation: fireGlow 2.8s ease-in-out infinite alternate;
+}
+.event-scene:not(.is-active) .ceremony-particle,
+.event-scene:not(.is-active) .art-sway,
+.event-scene:not(.is-active) .art-flower,
+.event-scene:not(.is-active) .marigold,
+.event-scene:not(.is-active) .art-garland,
+.event-scene:not(.is-active) .sacred-fire {
+  animation-play-state: paused;
+}
+
+@keyframes ceremonyDrift {
+  0%,
+  100% {
+    opacity: 0.12;
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translate3d(12px, -20px, 0) rotate(30deg);
+  }
+}
+@keyframes leafSway {
+  from {
+    transform: rotate(-2deg);
+  }
+  to {
+    transform: rotate(2deg);
+  }
+}
+@keyframes flowerBreathe {
+  from {
+    opacity: 0.75;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.03);
+  }
+}
+@keyframes garlandSway {
+  from {
+    transform: rotate(-0.6deg);
+  }
+  to {
+    transform: rotate(0.6deg);
+  }
+}
+@keyframes fireGlow {
+  from {
+    opacity: 0.68;
+    transform: scaleY(0.96);
+  }
+  to {
+    opacity: 0.95;
+    transform: scaleY(1.04);
+  }
+}
+
+.love-quote {
+  background:
+    radial-gradient(ellipse at 15% 50%, oklch(0.9 0.12 12 / 0.34), transparent 36%),
+    radial-gradient(ellipse at 86% 50%, oklch(0.9 0.12 78 / 0.4), transparent 36%),
+    linear-gradient(180deg, oklch(0.98 0.035 84), oklch(0.96 0.055 45));
+}
+.love-quote__copy {
+  border-top: 1px solid oklch(0.72 0.13 68 / 0.48);
+  border-bottom: 1px solid oklch(0.72 0.13 68 / 0.48);
+}
+.love-quote .font-display {
+  color: var(--rose-deep);
+}
+.love-quote .text-muted-foreground {
+  color: oklch(0.4 0.08 34);
+}
+
+.wedding-finale {
+  background:
+    radial-gradient(ellipse at 0% 0%, oklch(0.91 0.11 12 / 0.4), transparent 36%),
+    radial-gradient(ellipse at 100% 100%, oklch(0.9 0.13 76 / 0.44), transparent 38%),
+    linear-gradient(145deg, oklch(0.99 0.025 84), oklch(0.96 0.055 50));
+}
+.wedding-finale::before {
+  position: absolute;
+  right: -10rem;
+  bottom: 8%;
+  width: min(38vw, 28rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, oklch(0.82 0.13 145 / 0.18), transparent 68%);
+  content: "";
+  pointer-events: none;
+}
+.finale-floral {
+  color: oklch(0.61 0.15 12);
+}
+.finale-floral svg {
+  color: inherit;
+}
+.finale-floral .corner-leaf {
+  fill: oklch(0.58 0.13 145 / 0.76);
+  stroke: oklch(0.42 0.12 145);
+  stroke-width: 0.8;
+}
+.finale-floral .corner-bloom {
+  fill: oklch(0.76 0.17 55);
+  stroke: oklch(0.65 0.16 20);
+  stroke-width: 0.8;
+  animation: flowerBreathe 7s ease-in-out infinite alternate;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.finale-photo-frame {
+  padding: 0.45rem;
+  border-radius: 52% 48% 45% 45%;
+  background: oklch(0.99 0.025 84 / 0.88);
+  box-shadow: 0 15px 32px oklch(0.42 0.08 32 / 0.14);
+  transform: rotate(-2deg);
+}
+.finale-photo-frame > div {
+  border-radius: inherit;
+}
+.finale-invitation {
+  color: var(--earth);
+}
+.finale-names {
+  color: var(--rose);
+}
+.finale-names span {
+  color: var(--terracotta);
+}
+.finale-date {
+  color: var(--earth);
+}
+.finale-time {
+  color: var(--muted-foreground);
+}
+.finale-location {
+  color: var(--leaf);
+}
+
+@media (max-width: 640px) {
+  .opening-card {
+    max-width: 25rem;
+    padding: 1rem 1.15rem;
+  }
+  .story-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+  }
+  .story-gallery {
+    max-width: 24rem;
+    margin-inline: auto;
+  }
+  .story-photo--2 {
+    transform: rotate(2deg) translateY(0.75rem);
+  }
+  .event-scene,
+  .event-scene--wedding {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.5rem;
+    min-height: auto;
+    padding: 1rem 0;
+    text-align: center;
+  }
+  .event-scene::before {
+    inset: 2% -2%;
+    border-radius: 40% 60% 48% 52% / 52% 43% 57% 48%;
+  }
+  .event-scene--haldi .event-scene__art,
+  .event-scene--haldi .event-scene__copy {
+    order: initial;
+  }
+  .event-scene__art,
+  .event-scene__art--wedding {
+    min-height: auto;
+  }
+  .event-scene__copy {
+    margin: 0 auto;
+  }
+  .event-scene__copy--wedding h3 {
+    max-width: 24rem;
+    margin-inline: auto;
+  }
+  .event-scene--wedding::before {
+    inset: 0 -2%;
+  }
+  .love-quote__copy {
+    padding-inline: 0;
+  }
+  .finale-floral svg {
+    width: 5.5rem;
+    height: 5.5rem;
+  }
+  .ceremony-particle:nth-child(n + 9) {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ceremony-particle,
+  .art-sway,
+  .art-flower,
+  .marigold,
+  .art-garland,
+  .sacred-fire,
+  .music-control svg,
+  .music-note {
+    animation: none;
+  }
+}
+
+.music-control--playing svg {
+  animation: musicTurn 12s linear infinite;
+}
+.music-note {
+  position: absolute;
+  color: var(--gold);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  opacity: 0;
+  pointer-events: none;
+  animation: musicNoteRise 2.6s ease-in-out infinite;
+}
+.music-note--one {
+  top: -0.5rem;
+  right: 0.1rem;
+}
+.music-note--two {
+  top: 0.1rem;
+  left: -0.45rem;
+  animation-delay: -1.3s;
+}
+@keyframes musicTurn {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes musicNoteRise {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 5px, 0);
+  }
+  35%,
+  65% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(0, -9px, 0);
+  }
 }
