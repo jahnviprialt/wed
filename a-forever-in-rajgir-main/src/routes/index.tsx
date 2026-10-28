@@ -51,7 +51,6 @@ function Invitation() {
   const [entered, setEntered] = useState(false);
   const [playing, setPlaying] = useState(false);
   const music = useRef<MusicPlayer | null>(null);
-  const startMusic = useRef<() => void>(() => undefined);
   const brideSection = useRef<HTMLElement>(null);
 
   useLayoutEffect(() => {
@@ -61,32 +60,60 @@ function Invitation() {
   useEffect(() => {
     const player = createMusic();
     music.current = player;
-    let pendingPlay: Promise<void> | null = null;
+    let active = true;
+    const updatePlaying = () => {
+      if (active) setPlaying(player.isPlaying());
+    };
+    const unsubscribe = player.subscribe(updatePlaying);
+    let waitingForInteraction = true;
 
-    startMusic.current = () => {
-      if (pendingPlay) return;
-      pendingPlay = player
-        .play()
-        .then(() => {
-          setPlaying(true);
-        })
-        .catch((error: unknown) => {
-          console.error("Wedding music could not be played.", error);
-        })
-        .finally(() => {
-          pendingPlay = null;
-        });
+    const removeInteractionListeners = () => {
+      if (!waitingForInteraction) return;
+      waitingForInteraction = false;
+      window.removeEventListener("pointerdown", handleFirstInteraction);
+      window.removeEventListener("touchstart", handleFirstInteraction);
+      window.removeEventListener("click", handleFirstInteraction);
+      window.removeEventListener("scroll", handleFirstInteraction);
+      window.removeEventListener("keydown", handleFirstInteraction);
     };
 
+    const attemptPlay = () => {
+      if (player.isPlaying()) {
+        removeInteractionListeners();
+        updatePlaying();
+        return;
+      }
+
+      void player
+        .play()
+        .then(() => {
+          removeInteractionListeners();
+          updatePlaying();
+        })
+        .catch(() => {
+          updatePlaying();
+        });
+    };
+    const handleFirstInteraction = () => attemptPlay();
+
+    window.addEventListener("pointerdown", handleFirstInteraction, { passive: true });
+    window.addEventListener("touchstart", handleFirstInteraction, { passive: true });
+    window.addEventListener("click", handleFirstInteraction);
+    window.addEventListener("scroll", handleFirstInteraction, { passive: true });
+    window.addEventListener("keydown", handleFirstInteraction);
+    updatePlaying();
+    attemptPlay();
+
     return () => {
-      startMusic.current = () => undefined;
+      active = false;
+      removeInteractionListeners();
+      unsubscribe();
       music.current = null;
     };
   }, []);
 
   const enter = () => {
     if (entered) return;
-    startMusic.current();
     setEntered(true);
     window.setTimeout(() => {
       brideSection.current?.scrollIntoView({
@@ -98,9 +125,8 @@ function Invitation() {
   const toggle = () => {
     if (playing) {
       music.current?.pause();
-      setPlaying(false);
     } else {
-      startMusic.current();
+      void music.current?.play().catch(() => undefined);
     }
   };
 
