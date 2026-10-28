@@ -201,13 +201,13 @@ function Opening({ onEnter, entered }: { onEnter: () => void; entered: boolean }
         </div>
         <div className={`opening-details ${showDetails ? "opening-details--visible" : ""}`}>
           <Ornament className="my-4" />
-          <h1 className="mb-1 font-display text-4xl tracking-[0.18em] text-rose sm:text-6xl">
-            SHIPRA
-          </h1>
-          <p className="mb-1 font-script text-4xl text-terracotta sm:text-5xl">WEDS</p>
-          <h2 className="mb-3 font-display text-4xl tracking-[0.18em] text-rose sm:text-6xl">
-            SAURAV
-          </h2>
+          <div className="couple-name-row opening-couple-names mb-3 flex items-baseline justify-center whitespace-nowrap font-display text-rose">
+            <span>SHIPRA</span>
+            <span className="couple-weds mx-2 font-body font-normal italic text-terracotta sm:mx-3">
+              weds
+            </span>
+            <span>SAURAV</span>
+          </div>
           <p className="font-caps text-xs tracking-[0.28em] text-rose sm:text-sm">
             20 NOVEMBER 2026
           </p>
@@ -477,8 +477,12 @@ function Finale() {
           </p>
         </Reveal>
         <Reveal delay={400}>
-          <p className="finale-names mt-10 whitespace-nowrap font-display text-[1.65rem] tracking-[0.08em] sm:text-5xl sm:tracking-[0.12em]">
-            SHIPRA <span className="font-script tracking-normal">WEDS</span> SAURAV
+          <p className="couple-name-row finale-names mt-10 flex items-baseline justify-center whitespace-nowrap font-display">
+            <span>SHIPRA</span>
+            <span className="couple-weds mx-2 font-body font-normal italic tracking-normal sm:mx-3">
+              weds
+            </span>
+            <span>SAURAV</span>
           </p>
           <p className="finale-date mt-6 font-caps text-xs tracking-royal">20 NOVEMBER 2026</p>
           <p className="finale-time mt-2 font-caps text-[10px] tracking-[0.28em]">
