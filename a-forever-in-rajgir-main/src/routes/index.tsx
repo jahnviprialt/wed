@@ -36,6 +36,9 @@ export const Route = createFileRoute("/")({
         property: "og:image",
         content: "https://shipra-weds-saurav.online/wedding-preview.png",
       },
+      { property: "og:image:type", content: "image/png" },
+      { property: "og:image:width", content: "768" },
+      { property: "og:image:height", content: "1365" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Shipra Weds Saurav" },
       {
