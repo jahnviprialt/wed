@@ -20,20 +20,32 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Shipra weds Saurav — Wedding Invitation · 20 November 2026" },
+      { title: "Shipra Weds Saurav" },
       {
         name: "description",
-        content:
-          "With joy, Shipra weds Saurav invite you to celebrate their wedding on 20 November 2026, 7:00 PM onwards, in Rajgir.",
+        content: "Together with their families, Shipra & Saurav invite you to celebrate their wedding ♥️",
       },
-      { property: "og:title", content: "Shipra weds Saurav · 20 November 2026" },
+      { property: "og:title", content: "Shipra Weds Saurav" },
       {
         property: "og:description",
-        content:
-          "You are warmly invited to the wedding of Shipra & Saurav — 20 November 2026, 7:00 PM onwards, Rajgir.",
+        content: "Together with their families, Shipra & Saurav invite you to celebrate their wedding ♥️",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://shipra-weds-saurav.online/" },
+      {
+        property: "og:image",
+        content: "https://shipra-weds-saurav.online/wedding-preview.png",
+      },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Shipra Weds Saurav" },
+      {
+        name: "twitter:description",
+        content: "Together with their families, Shipra & Saurav invite you to celebrate their wedding ♥️",
+      },
+      {
+        name: "twitter:image",
+        content: "https://shipra-weds-saurav.online/wedding-preview.png",
+      },
     ],
   }),
   component: Invitation,

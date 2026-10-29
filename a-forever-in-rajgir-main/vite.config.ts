@@ -7,9 +7,31 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
+  // Serve the prerendered SPA shell as static output for Vercel.
+  nitro: false,
+  vite: {
+    base: "/",
+    environments: {
+      client: {
+        build: {
+          outDir: "dist",
+        },
+      },
+      ssr: {
+        build: {
+          outDir: ".output/server",
+        },
+      },
+    },
+  },
   tanstackStart: {
-    // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
-    // nitro/vite builds from this
+    // Use the SSR error wrapper while generating the static SPA shell.
     server: { entry: "server" },
+    spa: {
+      enabled: true,
+      prerender: {
+        outputPath: "/index",
+      },
+    },
   },
 });
