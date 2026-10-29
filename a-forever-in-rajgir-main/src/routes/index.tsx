@@ -34,7 +34,7 @@ export const Route = createFileRoute("/")({
       { property: "og:url", content: "https://shipra-weds-saurav.online/" },
       {
         property: "og:image",
-        content: "https://shipra-weds-saurav.online/wedding-preview.png",
+        content: "https://shipra-weds-saurav.online/wedding-preview-v2.png",
       },
       { property: "og:image:type", content: "image/png" },
       { property: "og:image:width", content: "768" },
@@ -47,7 +47,7 @@ export const Route = createFileRoute("/")({
       },
       {
         name: "twitter:image",
-        content: "https://shipra-weds-saurav.online/wedding-preview.png",
+        content: "https://shipra-weds-saurav.online/wedding-preview-v2.png",
       },
     ],
   }),
